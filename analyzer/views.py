@@ -1,5 +1,21 @@
+from django.conf import settings
+from django.http import FileResponse
 from django.shortcuts import render
+from django.views.decorators.cache import cache_control
+from django.views.decorators.http import require_safe
 from .forms import NumberForm, TextForm
+
+
+@require_safe
+def home(request):
+    return render(request, 'analyzer/home.html')
+
+
+@require_safe
+@cache_control(public=True, max_age=86400)
+def uth_logo(request):
+    # Serve the supplied identity asset with Gunicorn too, without DEBUG/static serving.
+    return FileResponse((settings.BASE_DIR / 'UTH Logo.png').open('rb'), content_type='image/png')
 
 
 def index(request):

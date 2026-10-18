@@ -11,7 +11,7 @@ docker compose up --build -d
 docker compose ps
 ```
 
-Abrir **http://localhost:8000**. El servicio tiene un límite de **256 MiB de RAM y 1 CPU** mediante `mem_limit: 256m` y `cpus: 1.0`. Gunicorn utiliza un trabajador con dos hilos y un usuario sin privilegios.
+Abrir **http://localhost:8000** para ver la presentación de UTH con los datos del estudiante, cuenta, asignatura y docente. El botón **Entrar al analizador** lleva a **http://localhost:8000/analizador/**. El logo original `UTH Logo.png` se incluye desde la raíz y se sirve mediante una ruta fija de Django, también con Gunicorn y `DEBUG=0`. El servicio tiene un límite de **256 MiB de RAM y 1 CPU** mediante `mem_limit: 256m` y `cpus: 1.0`. Gunicorn utiliza un trabajador con dos hilos y un usuario sin privilegios.
 
 ```sh
 # Pruebas dentro de Python 3.12

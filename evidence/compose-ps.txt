@@ -1,2 +1,2 @@
 NAME                             IMAGE                          COMMAND                  SERVICE   CREATED          STATUS                    PORTS
-analizadordatos-mv1-mepc-web-1   analizadordatos-mv1-mepc-web   "gunicorn config.wsg…"   web       39 seconds ago   Up 38 seconds (healthy)   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+analizadordatos-mv1-mepc-web-1   analizadordatos-mv1-mepc-web   "gunicorn config.wsg…"   web       30 seconds ago   Up 29 seconds (healthy)   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp

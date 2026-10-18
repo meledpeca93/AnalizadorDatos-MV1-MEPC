@@ -5,3 +5,4 @@ __pycache__/
 staticfiles/
 *.zip
 .DS_Store
+evidence/raw-video/

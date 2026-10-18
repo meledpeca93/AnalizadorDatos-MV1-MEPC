@@ -1,0 +1,1 @@
+PASS: student and teacher details, original UTH logo loaded, homepage at /, analyzer at /analizador/, entry and return navigation, conversion after entry, no horizontal overflow at 360/390/768px, no JavaScript errors.

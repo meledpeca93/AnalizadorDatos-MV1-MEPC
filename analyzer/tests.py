@@ -58,21 +58,29 @@ class TextTests(SimpleTestCase):
 
 class PageTests(SimpleTestCase):
     def test_get_and_post(self):
-        self.assertContains(self.client.get('/'), 'Analizador de representación de datos')
-        response = self.client.post('/', {'action': 'number', 'number': '100', 'base': '16'})
+        home = self.client.get('/')
+        self.assertContains(home, '201230010100')
+        self.assertContains(home, 'Ricardo Enrique Lagos Mendoza')
+        self.assertContains(home, 'href="/analizador/"')
+        logo = self.client.get('/identidad/logo-uth.png')
+        self.assertEqual(logo.status_code, 200)
+        self.assertEqual(logo['Content-Type'], 'image/png')
+        logo.close()
+        self.assertContains(self.client.get('/analizador/'), 'Analizador de representación de datos')
+        response = self.client.post('/analizador/', {'action': 'number', 'number': '100', 'base': '16'})
         self.assertContains(response, '0000000100000000')
-        self.assertContains(self.client.post('/', {'action': 'text', 'text': 'ñ'}), 'C3 B1')
+        self.assertContains(self.client.post('/analizador/', {'action': 'text', 'text': 'ñ'}), 'C3 B1')
 
     def test_form_errors(self):
         for data, message in [({'action': 'number', 'number': '', 'base': '10'}, 'Ingrese un número'), ({'action': 'number', 'number': '-1', 'base': '10'}, 'negativos'), ({'action': 'number', 'number': '2', 'base': '2'}, 'Dígitos inválidos'), ({'action': 'number', 'number': '65536', 'base': '10'}, '65 535'), ({'action': 'number', 'number': '1', 'base': '3'}, 'base válida'), ({'action': 'text', 'text': ''}, 'Ingrese un texto'), ({'action': 'text', 'text': 'a' * 21}, 'máximo 20'), ({'action': 'other'}, 'operación válida')]:
             with self.subTest(data=data):
-                self.assertContains(self.client.post('/', data), message)
+                self.assertContains(self.client.post('/analizador/', data), message)
 
     def test_html_is_escaped(self):
         payload = '<script>x</script>'
-        response = self.client.post('/', {'action': 'text', 'text': payload})
+        response = self.client.post('/analizador/', {'action': 'text', 'text': payload})
         self.assertNotContains(response, payload)
         self.assertContains(response, '&lt;script&gt;x&lt;/script&gt;')
 
     def test_csrf_protection(self):
-        self.assertEqual(Client(enforce_csrf_checks=True).post('/', {'action': 'text', 'text': 'ñ'}).status_code, 403)
+        self.assertEqual(Client(enforce_csrf_checks=True).post('/analizador/', {'action': 'text', 'text': 'ñ'}).status_code, 403)

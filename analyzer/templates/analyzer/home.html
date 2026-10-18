@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Proyecto de Arquitectura de Computadoras de Melvin Edgardo Peña Caballero, Universidad Tecnológica de Honduras.">
+<title>UTH · Analizador de representación de datos</title>
+{% include 'analyzer/_styles.html' %}
+<style>
+.home-top{border-bottom:1px solid var(--line);background:var(--paper)}
+.home-top .wrap{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.home-top strong{font-size:12px;letter-spacing:.2px}.home-top span{font:11px var(--mono);color:var(--muted)}
+.cover{padding:56px 0 44px;display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
+.university-logo{display:block;width:min(100%,400px);height:auto;margin-bottom:40px}
+.cover h1{font-size:clamp(34px,4.2vw,54px);letter-spacing:-1.8px;margin:18px 0 20px;line-height:1.1}
+.cover-copy>p{font-size:15px;max-width:530px;margin-bottom:26px}
+.cover-cta{display:inline-flex;width:auto;min-height:52px;text-decoration:none;padding:15px 23px;gap:35px;font-size:14px}
+.cover-note{font-size:11px!important;margin:12px 0 0;color:var(--muted)}
+.identity{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 16px 44px #173d2906}
+.identity:before{content:'';display:block;height:5px;background:linear-gradient(90deg,#126553 0 75%,#c7a452 75%)}
+.identity-title{padding:26px 30px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+.identity-title h2{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:1.5px;margin:0;color:var(--muted)}
+.university-seal{background:#eef3e8;color:var(--green);font:700 12px var(--mono);padding:8px 11px;border-radius:7px}
+.identity-body{padding:28px 30px}.identity-label{font:500 10px var(--mono);text-transform:uppercase;letter-spacing:1.1px;color:var(--muted)}
+.student-name{font-size:27px;line-height:1.25;letter-spacing:-.7px;margin:12px 0 16px}
+.account{display:inline-flex;align-items:center;gap:12px;background:#f1f5ed;border-radius:7px;padding:10px 12px;font-size:11px;color:var(--muted)}
+.account strong{font:600 13px var(--mono);color:var(--green);letter-spacing:.4px}
+.course-details{margin:28px 0 0;display:grid;gap:22px;border-top:1px solid var(--line);padding-top:25px}
+.course-details dt{font:500 10px var(--mono);text-transform:uppercase;letter-spacing:1.1px;color:var(--muted);margin-bottom:8px}
+.course-details dd{font-size:15px;line-height:1.6;margin:0;font-weight:550}
+.identity-foot{padding:15px 30px;border-top:1px solid var(--line);background:#f8faf4;font-size:11px;color:var(--muted)}
+.cover-features{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:28px 0 34px;border-top:1px solid var(--line)}
+.cover-feature{display:flex;gap:13px}.feature-symbol{font:600 16px var(--mono);color:var(--green);background:#e8f0e3;border:1px solid #dce6d7;border-radius:10px;min-width:42px;height:42px;display:grid;place-items:center}
+.cover-feature h2{font-size:13px;margin:2px 0 6px;letter-spacing:0}.cover-feature p{font-size:12px;margin:0;max-width:270px}
+.home-footer{border-top:1px solid var(--line);padding:20px 0 26px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:16px}
+@media(max-width:900px){.cover{gap:30px}.identity-title,.identity-body{padding-left:24px;padding-right:24px}.student-name{font-size:24px}.account{flex-wrap:wrap;gap:5px 12px}}
+@media(max-width:720px){.home-top .wrap{min-height:60px}.home-top strong{font-size:11px}.home-top span{font-size:10px}.cover{grid-template-columns:1fr;padding-top:32px;gap:32px}.university-logo{max-width:340px;margin-bottom:30px}.cover h1{letter-spacing:-1.1px}.cover-copy>p{font-size:14px}.cover-cta{width:100%}.identity-body{padding-top:24px;padding-bottom:24px}.cover-features{grid-template-columns:1fr;gap:22px}.cover-feature p{max-width:none}.home-footer{flex-direction:column;gap:8px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#presentacion">Ir a la presentación</a>
+<header class="home-top"><div class="wrap"><strong>Arquitectura de Computadoras</strong><span>PROYECTO ACADÉMICO</span></div></header>
+<main class="wrap" id="presentacion">
+<div class="cover">
+<section class="cover-copy" aria-labelledby="home-title">
+<img class="university-logo" src="{% url 'uth-logo' %}" alt="UTH · Universidad Tecnológica de Honduras" width="1000" height="272" fetchpriority="high">
+<div class="eyebrow">De la teoría a la representación</div>
+<h1 id="home-title">Analizador de<br><span>representación de datos</span></h1>
+<p>Una experiencia interactiva para comprender cómo las computadoras representan números y texto: de las bases numéricas a los bytes de UTF-8.</p>
+<a class="primary cover-cta" href="{% url 'index' %}">Entrar al analizador <span aria-hidden="true">→</span></a>
+<p class="cover-note">Explore ejemplos, convierta datos y entienda cada resultado.</p>
+</section>
+<section class="identity" aria-labelledby="student-name">
+<div class="identity-title"><h2>Presentación del proyecto</h2><span class="university-seal" aria-hidden="true">UTH</span></div>
+<div class="identity-body"><div class="identity-label">Presentado por</div><h2 class="student-name" id="student-name">Melvin Edgardo<br>Peña Caballero</h2><div class="account"><span>N.º de cuenta</span><strong>201230010100</strong></div>
+<dl class="course-details"><div><dt>Asignatura</dt><dd>Arquitectura de Computadoras</dd></div><div><dt>Docente</dt><dd>Ing. Ricardo Enrique Lagos Mendoza</dd></div><div><dt>Institución</dt><dd>Universidad Tecnológica de Honduras</dd></div></dl></div>
+<div class="identity-foot">Sistemas numéricos · Codificación de caracteres · Contenedores</div>
+</section>
+</div>
+<section class="cover-features" aria-label="Qué puede explorar en el analizador">
+<article class="cover-feature"><span class="feature-symbol" aria-hidden="true">01</span><div><h2>Un número, cuatro bases</h2><p>Convierta entre binario, octal, decimal y hexadecimal, y visualice sus bits.</p></div></article>
+<article class="cover-feature"><span class="feature-symbol" aria-hidden="true">ñ</span><div><h2>El texto por dentro</h2><p>Descubra el código Unicode y los bytes UTF-8 de cada carácter.</p></div></article>
+<article class="cover-feature"><span class="feature-symbol" aria-hidden="true">{ }</span><div><h2>Aprenda mientras explora</h2><p>Use ejemplos y explicaciones para conectar la teoría con los resultados.</p></div></article>
+</section>
+<footer class="home-footer"><span>UTH · Arquitectura de Computadoras</span><span>Proyecto de Melvin Edgardo Peña Caballero</span></footer>
+</main>
+</body>
+</html>
