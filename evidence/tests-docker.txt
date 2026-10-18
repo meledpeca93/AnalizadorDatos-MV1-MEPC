@@ -1,0 +1,22 @@
+Found 14 test(s).
+Skipping setup of unused database(s): default.
+System check identified no issues (0 silenced).
+test_byte_boundaries (analyzer.tests.ConversionTests.test_byte_boundaries) ... ok
+test_empty_and_negative (analyzer.tests.ConversionTests.test_empty_and_negative) ... ok
+test_invalid_base (analyzer.tests.ConversionTests.test_invalid_base) ... ok
+test_invalid_digits (analyzer.tests.ConversionTests.test_invalid_digits) ... ok
+test_leading_zeros (analyzer.tests.ConversionTests.test_leading_zeros) ... ok
+test_out_of_range (analyzer.tests.ConversionTests.test_out_of_range) ... ok
+test_valid_bases (analyzer.tests.ConversionTests.test_valid_bases) ... ok
+test_csrf_protection (analyzer.tests.PageTests.test_csrf_protection) ... ok
+test_form_errors (analyzer.tests.PageTests.test_form_errors) ... ok
+test_get_and_post (analyzer.tests.PageTests.test_get_and_post) ... ok
+test_html_is_escaped (analyzer.tests.PageTests.test_html_is_escaped) ... ok
+test_enye_utf8 (analyzer.tests.TextTests.test_enye_utf8) ... ok
+test_length (analyzer.tests.TextTests.test_length) ... ok
+test_multibyte_and_space (analyzer.tests.TextTests.test_multibyte_and_space) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.025s
+
+OK
