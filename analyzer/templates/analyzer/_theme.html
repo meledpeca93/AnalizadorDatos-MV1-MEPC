@@ -1,0 +1,75 @@
+<style>
+:root{color-scheme:light}
+.nav-actions{display:flex;align-items:center;gap:22px}
+html.js button.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.theme-toggle{min-height:40px;border:1px solid var(--line);border-radius:9px;padding:9px 12px;background:var(--paper);color:var(--ink);font-size:12px;font-weight:600;white-space:nowrap}
+.theme-toggle:hover{border-color:var(--green)}
+.theme-toggle span{color:inherit;font:inherit}
+.theme-sun{display:none}
+html[data-theme=dark]{color-scheme:dark;--ink:#e5efe8;--muted:#adbbb3;--green:#8ed2b0;--line:#344b40;--paper:#1b2b23;--mint:#293f32;--orange:#e9b879;background:#121d18}
+html[data-theme=dark] .theme-moon{display:none}
+html[data-theme=dark] .theme-sun{display:block}
+html[data-theme=dark] .concept,html[data-theme=dark] .learn{background:#223328}
+html[data-theme=dark] .concept p,html[data-theme=dark] .learn details,html[data-theme=dark] .learn-item{border-color:var(--line)}
+html[data-theme=dark] .concept-arrow,html[data-theme=dark] .empty-icon{color:#9bb5a1}
+html[data-theme=dark] .concept-value small,html[data-theme=dark] .concept-top{color:var(--muted)}
+html[data-theme=dark] .intro-steps b,html[data-theme=dark] .metric,html[data-theme=dark] .card-kicker span,html[data-theme=dark] .university-seal,html[data-theme=dark] .account,html[data-theme=dark] .feature-symbol{background:#293f32;color:var(--green);border-color:var(--line)}
+html[data-theme=dark] input:not([type=hidden]),html[data-theme=dark] select{background:#132219;color:var(--ink);border-color:#587363}
+html[data-theme=dark] input::placeholder{color:#9fb0a5;opacity:1}
+html[data-theme=dark] input:focus,html[data-theme=dark] select:focus{outline-color:#395e48;border-color:#8ed2b0}
+html[data-theme=dark] .example,html[data-theme=dark] .copy{background:#293f32;color:#d4e9d7;border-color:#415e4b}
+html[data-theme=dark] .example:hover,html[data-theme=dark] .copy:hover{background:#37503d}
+html[data-theme=dark] .primary,html[data-theme=dark] .logo{background:#286e57;color:#fff}
+html[data-theme=dark] .primary:hover{background:#327e65}
+html[data-theme=dark] .result,html[data-theme=dark] .empty,html[data-theme=dark] .identity-foot{background:#17271e}
+html[data-theme=dark] .representation,html[data-theme=dark] .table-wrap{background:#1b2b23}
+html[data-theme=dark] .representation dt small{color:var(--muted)}
+html[data-theme=dark] .status{color:#b9e7c5;background:#2b4833}
+html[data-theme=dark] .byte{background:#293f32;color:#d8eedc;border-color:#526f56}
+html[data-theme=dark] .byte .padding{color:#adc3ab}
+html[data-theme=dark] th{background:#293f32;color:#c3d8c7}
+html[data-theme=dark] th,html[data-theme=dark] td{border-color:var(--line)}
+html[data-theme=dark] .errorlist{background:#422b27;color:#ffd1c1;border-color:#875345}
+html[data-theme=dark] input[aria-invalid=true]{background:#342520;border-color:#d39880}
+html[data-theme=dark] .university-logo{background:#fffefb;padding:14px;border-radius:12px}
+html[data-theme=dark] .toast,html[data-theme=dark] .skip{background:#d6e9da;color:#15261b}
+@media(max-width:720px){.nav{flex-wrap:wrap;gap:12px;padding-top:12px;padding-bottom:12px}.nav-actions{gap:14px}.nav .nav-actions{width:100%;justify-content:space-between}.home-top .wrap{gap:10px}.theme-toggle{min-height:40px}}
+@media(max-width:480px){.project-label{display:none}}
+</style>
+<script>
+(() => {
+  const root = document.documentElement;
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  const key = 'analyzer-theme';
+  let choice = null;
+  try { const saved = localStorage.getItem(key); if (saved === 'light' || saved === 'dark') choice = saved; } catch {}
+  root.classList.add('js');
+  function apply(theme) {
+    root.dataset.theme = theme;
+    document.querySelectorAll('[data-theme-toggle]').forEach(button => {
+      const dark = theme === 'dark';
+      button.setAttribute('aria-pressed', String(dark));
+      button.setAttribute('aria-label', dark ? 'Activar tema claro' : 'Activar tema oscuro');
+      button.title = dark ? 'Activar tema claro' : 'Activar tema oscuro';
+      button.querySelector('[data-theme-label]').textContent = dark ? 'Claro' : 'Oscuro';
+    });
+  }
+  function current() { return choice || (media.matches ? 'dark' : 'light'); }
+  apply(current());
+  document.addEventListener('DOMContentLoaded', () => {
+    apply(current());
+    document.querySelectorAll('[data-theme-toggle]').forEach(button => button.addEventListener('click', () => {
+      choice = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      try { localStorage.setItem(key, choice); } catch {}
+      apply(choice);
+    }));
+  });
+  media.addEventListener('change', () => { if (!choice) apply(current()); });
+  window.addEventListener('storage', event => {
+    if (event.storageArea === localStorage && (event.key === key || event.key === null)) {
+      choice = event.newValue === 'light' || event.newValue === 'dark' ? event.newValue : null;
+      apply(current());
+    }
+  });
+})();
+</script>

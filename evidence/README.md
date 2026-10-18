@@ -1,5 +1,7 @@
 # Evidencias de ejecución
 
+El video recomendado para la entrega es **[demostracion-rubrica.mp4](demostracion-rubrica.mp4)**: explica los siete criterios mediante selecciones reales de código en VS Code, resultados reales del navegador y comandos ejecutados en la terminal de VS Code. Tiene narración sintética en español, rótulos y [subtítulos](demostracion-rubrica.srt). Es un montaje de capturas reales con selecciones progresivas; no una grabación continua de escritorio ni una simulación del IDE. El [guion](guion-rubrica.md) y [timeline.json](rubric-video/timeline.json) permiten localizar cada escena.
+
 Capturadas durante la implementación. Los archivos de texto contienen salidas reales, no ejemplos.
 
 - `python-container.txt`: Python 3.12.15 dentro del contenedor.
@@ -36,6 +38,6 @@ Requiere Chromium de Playwright instalado y el contenedor escuchando en el puert
 
 `home.png` y `home-mobile.png` muestran la presentación de UTH con estudiante, cuenta, asignatura y docente. `home-checks.txt` registra la carga real del logo, navegación entre portada y analizador y adaptación móvil.
 
-## Publicación pendiente
+## Publicación
 
-El proyecto y las evidencias están disponibles localmente. No se ha creado un enlace GitHub o Google Drive: falta habilitar una conexión de cuenta con capacidad para subir la entrega. No se presenta una URL ficticia. Una vez conectado GitHub, publicar los archivos y el MP4 (o adjuntarlo a una release) y verificar acceso para el evaluador. Como alternativa, subir la carpeta completa a Google Drive y habilitar acceso para el evaluador.
+Repositorio existente: https://github.com/meledpeca93/AnalizadorDatos-MV1-MEPC. Se verificó su acceso público y la presencia del video de demostración anterior. El nuevo video `demostracion-rubrica.mp4`, los subtítulos y el guion se generan localmente y deben incluirse en el siguiente commit y push para compartir esta versión actualizada con el evaluador.

@@ -37,6 +37,8 @@ python manage.py runserver 127.0.0.1:8000
 
 ## Interfaz y experiencia de uso
 
+El botón de la barra de navegación alterna entre tema claro y oscuro en la portada y el analizador. La primera visita sigue el tema del sistema; una elección manual se guarda localmente en el navegador y se conserva al navegar o recargar.
+
 - Ejemplos interactivos que preparan el número y su base, o un texto de muestra.
 - Ayuda que muestra los dígitos permitidos al cambiar de base.
 - Resultados con botones para copiar, agrupación visual de 8 bits y ceros de relleno diferenciados.
@@ -77,5 +79,13 @@ La **CPU** ejecuta el intérprete Python y las instrucciones de conversión, val
 Un contenedor aísla procesos y recursos mediante mecanismos del kernel, como namespaces y cgroups; **no arranca un kernel propio** como una máquina virtual. Los procesos Python realizan llamadas al kernel del host Linux del contenedor. En Docker Desktop para macOS o Windows, ese host es la máquina virtual Linux administrada por Docker: los contenedores comparten su kernel Linux, no directamente el kernel de macOS o Windows. Los límites de Compose restringen memoria y tiempo de CPU; 1 CPU es una cuota, no una reserva de un núcleo físico exclusivo.
 
 ## Entrega
+
+- [Video por criterio de la rúbrica: código seleccionado en VS Code, aplicación y terminal reales](evidence/demostracion-rubrica.mp4).
+- [Guion con tiempos, archivos y flujo explicado](evidence/guion-rubrica.md).
+- [Subtítulos de la narración](evidence/demostracion-rubrica.srt).
+- [Estadísticas de Docker](evidence/docker-stats.txt) y [límites aplicados](evidence/docker-limits.txt).
+- [Resultados de las pruebas](evidence/tests-docker.txt).
+- [Repositorio en GitHub](https://github.com/meledpeca93/AnalizadorDatos-MV1-MEPC).
+
 
 Consultar `evidence/README.md` para el estado verificado de las evidencias, el video y la publicación. El video debe durar menos de dos minutos y mostrar conversión válida, error, ñ, pruebas y contenedor en ejecución. El enlace a un repositorio o Drive debe verificarse con acceso desde la cuenta del evaluador antes de entregar.

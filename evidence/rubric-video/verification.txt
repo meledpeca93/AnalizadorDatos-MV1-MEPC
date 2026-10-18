@@ -1,0 +1,6 @@
+Duración: 00:01:54.92 (menos de 2 minutos).
+Resolución: 1600x900, 24 fps. Video H.264 y audio AAC.
+21 escenas y 2757 cuadros; narración en español y subtítulos SRT.
+Decodificación completa de audio y video sin errores.
+Fotogramas revisados: selección de código, 14 pruebas OK y Docker stats/inspect.
+Capturas del IDE y terminal reales; montaje con selecciones progresivas y rótulos.

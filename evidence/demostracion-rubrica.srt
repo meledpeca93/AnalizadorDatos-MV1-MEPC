@@ -1,0 +1,83 @@
+1
+00:00:00,000 --> 00:00:04,917
+Demostración de los siete criterios de la rúbrica, desde el código hasta su ejecución.
+
+2
+00:00:04,917 --> 00:00:11,250
+Ingresamos cien en hexadecimal. La base se selecciona explícitamente; no se adivina por los dígitos.
+
+3
+00:00:11,250 --> 00:00:17,208
+En forms punto py, number crea el campo de texto; base define los cuatro sistemas admitidos.
+
+4
+00:00:17,208 --> 00:00:23,167
+En views punto py, request POST recibe la entrada e is valid ejecuta las validaciones del formulario.
+
+5
+00:00:23,167 --> 00:00:27,042
+El método clean envía el número y su base al método convert number.
+
+6
+00:00:27,042 --> 00:00:31,583
+En services punto py, int interpreta el número según la base seleccionada.
+
+7
+00:00:31,583 --> 00:00:38,292
+Bit length cuenta bits significativos. El redondeo determina bytes; format completa el binario con ceros.
+
+8
+00:00:38,292 --> 00:00:45,125
+Cien hexadecimal equivale a doscientos cincuenta y seis: nueve bits significativos, completados a dos bytes.
+
+9
+00:00:45,125 --> 00:00:50,792
+Aquí se rechazan vacíos, negativos, dígitos inválidos y valores fuera del rango permitido.
+
+10
+00:00:50,792 --> 00:00:55,542
+Ciento dos en base dos produce un error claro: dos no es un dígito binario.
+
+11
+00:00:55,542 --> 00:01:00,083
+Text Form recibe el texto y clean text lo envía al analizador de caracteres.
+
+12
+00:01:00,083 --> 00:01:07,042
+Analyze text admite veinte puntos de código. Ord obtiene el identificador; encode genera los bytes UTF ocho.
+
+13
+00:01:07,042 --> 00:01:12,417
+La eñe tiene código doscientos cuarenta y uno y ocupa dos bytes: ce tres, be uno.
+
+14
+00:01:12,417 --> 00:01:16,833
+Las rutas conectan portada y analizador con sus vistas y plantillas de Django.
+
+15
+00:01:16,833 --> 00:01:22,625
+Tests punto py incluye catorce pruebas de conversiones, límites, errores y el caso de la eñe.
+
+16
+00:01:22,625 --> 00:01:27,500
+Ejecutamos las pruebas dentro del contenedor: las catorce terminan correctamente.
+
+17
+00:01:27,500 --> 00:01:32,000
+El Dockerfile usa Python tres punto doce slim e inicia Django con Gunicorn.
+
+18
+00:01:32,000 --> 00:01:37,833
+Compose publica el puerto ocho mil y limita la memoria a doscientos cincuenta y seis megas y una CPU.
+
+19
+00:01:37,833 --> 00:01:43,625
+Docker stats muestra consumo real. Inspect confirma los límites de memoria y CPU aplicados.
+
+20
+00:01:43,625 --> 00:01:48,083
+El README documenta cómo construir, ejecutar y verificar la aplicación.
+
+21
+00:01:48,083 --> 00:01:54,875
+La CPU ejecuta, la memoria guarda y la entrada y salida comunica. Docker comparte el kernel del host Linux.

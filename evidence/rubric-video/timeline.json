@@ -1,0 +1,170 @@
+[
+  {
+    "start_seconds": 0,
+    "end_seconds": 4.917,
+    "criterion": "RECORRIDO DE LA RÚBRICA · 10 PUNTOS",
+    "caption": "Melvin Edgardo Peña Caballero · Arquitectura de Computadoras · UTH",
+    "narration": "Demostración de los siete criterios de la rúbrica, desde el código hasta su ejecución.",
+    "source": "Aplicación real en Docker"
+  },
+  {
+    "start_seconds": 4.917,
+    "end_seconds": 11.25,
+    "criterion": "1 · CONVERSIONES Y AJUSTE A BYTES · 2.0 PUNTOS",
+    "caption": "Entrada: 100 · Base elegida: hexadecimal (16). La base se selecciona; no se adivina.",
+    "narration": "Ingresamos cien en hexadecimal. La base se selecciona explícitamente; no se adivina por los dígitos.",
+    "source": "Formulario real: input number y select base"
+  },
+  {
+    "start_seconds": 11.25,
+    "end_seconds": 17.208,
+    "criterion": "1 · CONVERSIONES Y AJUSTE A BYTES · 2.0 PUNTOS",
+    "caption": "NumberForm.number crea el input de texto; base ofrece 2, 8, 10 y 16.",
+    "narration": "En forms punto py, number crea el campo de texto; base define los cuatro sistemas admitidos.",
+    "source": "VS Code real: analyzer/forms.py, desde línea 6"
+  },
+  {
+    "start_seconds": 17.208,
+    "end_seconds": 23.167,
+    "criterion": "4 · ESTRUCTURA Y FUNCIONAMIENTO DJANGO · 1.5 PUNTOS",
+    "caption": "request.POST → NumberForm → is_valid(): recepción y validación en el servidor.",
+    "narration": "En views punto py, request POST recibe la entrada e is valid ejecuta las validaciones del formulario.",
+    "source": "VS Code real: analyzer/views.py, desde línea 24"
+  },
+  {
+    "start_seconds": 23.167,
+    "end_seconds": 27.042,
+    "criterion": "1 · FLUJO DE CONVERSIÓN",
+    "caption": "NumberForm.clean() llama convert_number(number, base).",
+    "narration": "El método clean envía el número y su base al método convert number.",
+    "source": "VS Code real: analyzer/forms.py, desde línea 9"
+  },
+  {
+    "start_seconds": 27.042,
+    "end_seconds": 31.583,
+    "criterion": "1 · CONVERSIONES Y AJUSTE A BYTES",
+    "caption": "int(significant, base) interpreta el número usando la base seleccionada.",
+    "narration": "En services punto py, int interpreta el número según la base seleccionada.",
+    "source": "VS Code real: analyzer/services.py, desde línea 18"
+  },
+  {
+    "start_seconds": 31.583,
+    "end_seconds": 38.292,
+    "criterion": "1 · CONVERSIONES Y AJUSTE A BYTES",
+    "caption": "bit_length → bits significativos · (bits + 7) // 8 → bytes · format → relleno binario.",
+    "narration": "Bit length cuenta bits significativos. El redondeo determina bytes; format completa el binario con ceros.",
+    "source": "VS Code real: analyzer/services.py, desde línea 21"
+  },
+  {
+    "start_seconds": 38.292,
+    "end_seconds": 45.125,
+    "criterion": "1 · RESULTADO DE LA CONVERSIÓN",
+    "caption": "100₁₆ = 256₁₀ · 00000001 00000000 · 9 bits significativos · 2 bytes.",
+    "narration": "Cien hexadecimal equivale a doscientos cincuenta y seis: nueve bits significativos, completados a dos bytes.",
+    "source": "Resultado real, agrupación binaria y explicación de relleno"
+  },
+  {
+    "start_seconds": 45.125,
+    "end_seconds": 50.792,
+    "criterion": "3 · VALIDACIÓN Y MENSAJES DE ERROR · 1.0 PUNTO",
+    "caption": "Se validan vacíos, negativos, dígitos de la base y rango 0–65 535.",
+    "narration": "Aquí se rechazan vacíos, negativos, dígitos inválidos y valores fuera del rango permitido.",
+    "source": "VS Code real: analyzer/services.py, desde línea 7"
+  },
+  {
+    "start_seconds": 50.792,
+    "end_seconds": 55.542,
+    "criterion": "3 · ERROR REAL DE VALIDACIÓN",
+    "caption": "102 en base 2 → error: el dígito 2 no pertenece al sistema binario.",
+    "narration": "Ciento dos en base dos produce un error claro: dos no es un dígito binario.",
+    "source": "Error real devuelto por Django"
+  },
+  {
+    "start_seconds": 55.542,
+    "end_seconds": 60.083,
+    "criterion": "2 · ANÁLISIS DE CARACTERES Y UTF-8 · 1.5 PUNTOS",
+    "caption": "TextForm.text recibe el texto y clean_text() lo envía a analyze_text().",
+    "narration": "Text Form recibe el texto y clean text lo envía al analizador de caracteres.",
+    "source": "VS Code real: analyzer/forms.py, desde línea 20"
+  },
+  {
+    "start_seconds": 60.083,
+    "end_seconds": 67.042,
+    "criterion": "2 · ANÁLISIS DE CARACTERES Y UTF-8",
+    "caption": "Máximo 20 puntos de código · ord(char) → código · encode(\"utf-8\") → bytes.",
+    "narration": "Analyze text admite veinte puntos de código. Ord obtiene el identificador; encode genera los bytes UTF ocho.",
+    "source": "VS Code real: analyzer/services.py, desde línea 26"
+  },
+  {
+    "start_seconds": 67.042,
+    "end_seconds": 72.417,
+    "criterion": "2 · RESULTADO UTF-8 CON Ñ",
+    "caption": "ñ → decimal 241 · U+00F1 · hexadecimal F1 · bytes UTF-8 C3 B1.",
+    "narration": "La eñe tiene código doscientos cuarenta y uno y ocupa dos bytes: ce tres, be uno.",
+    "source": "Tabla real: fila de ñ seleccionada"
+  },
+  {
+    "start_seconds": 72.417,
+    "end_seconds": 76.833,
+    "criterion": "4 · ESTRUCTURA Y FUNCIONAMIENTO DJANGO · 1.5 PUNTOS",
+    "caption": "urls.py conecta / y /analizador/ con las vistas; render() entrega las plantillas.",
+    "narration": "Las rutas conectan portada y analizador con sus vistas y plantillas de Django.",
+    "source": "VS Code real: config/urls.py, desde línea 4"
+  },
+  {
+    "start_seconds": 76.833,
+    "end_seconds": 82.625,
+    "criterion": "5 · PRUEBAS AUTOMATIZADAS · 1.0 PUNTO",
+    "caption": "tests.py: 14 pruebas de conversiones, límites, errores y UTF-8 con ñ.",
+    "narration": "Tests punto py incluye catorce pruebas de conversiones, límites, errores y el caso de la eñe.",
+    "source": "VS Code real: analyzer/tests.py, desde línea 43"
+  },
+  {
+    "start_seconds": 82.625,
+    "end_seconds": 87.5,
+    "criterion": "5 · PRUEBAS EJECUTADAS EN PYTHON 3.12",
+    "caption": "docker compose exec -T web python manage.py test --verbosity 1 → 14 pruebas: OK.",
+    "narration": "Ejecutamos las pruebas dentro del contenedor: las catorce terminan correctamente.",
+    "source": "Terminal real de VS Code: docker compose exec -T web python manage.py test --verbosity 1"
+  },
+  {
+    "start_seconds": 87.5,
+    "end_seconds": 92.0,
+    "criterion": "6 · DOCKERFILE Y COMPOSE · 1.5 PUNTOS",
+    "caption": "FROM python:3.12-slim · instalación de dependencias · ejecución con Gunicorn.",
+    "narration": "El Dockerfile usa Python tres punto doce slim e inicia Django con Gunicorn.",
+    "source": "VS Code real: Dockerfile, desde línea 1"
+  },
+  {
+    "start_seconds": 92.0,
+    "end_seconds": 97.833,
+    "criterion": "6 · PUERTO Y LÍMITES DE RECURSOS",
+    "caption": "ports: 8000:8000 · mem_limit: 256m · cpus: 1.0.",
+    "narration": "Compose publica el puerto ocho mil y limita la memoria a doscientos cincuenta y seis megas y una CPU.",
+    "source": "VS Code real: compose.yaml, desde línea 3"
+  },
+  {
+    "start_seconds": 97.833,
+    "end_seconds": 103.625,
+    "criterion": "6 · CONTENEDOR ACTIVO Y DOCKER STATS",
+    "caption": "stats muestra consumo real; inspect confirma 268435456 bytes de RAM y 1000000000 NanoCPUs.",
+    "narration": "Docker stats muestra consumo real. Inspect confirma los límites de memoria y CPU aplicados.",
+    "source": "Terminal real de VS Code: docker compose ps --format '{{.Service}}: {{.State}} ({{.Health}})'; docker stats --no-stream --format 'CPU: {{.CPUPerc}} | RAM: {{.MemUsage}}' $(docker compose ps -q web); docker inspect --format 'RAM={{.HostConfig.Memory}} CPU={{.HostConfig.NanoCpus}}' $(docker compose ps -q web)"
+  },
+  {
+    "start_seconds": 103.625,
+    "end_seconds": 108.083,
+    "criterion": "7 · README, EXPLICACIÓN Y EVIDENCIAS · 1.5 PUNTOS",
+    "caption": "README: comandos de construcción, ejecución, pruebas y verificación de recursos.",
+    "narration": "El README documenta cómo construir, ejecutar y verificar la aplicación.",
+    "source": "VS Code real: README.md, desde línea 8"
+  },
+  {
+    "start_seconds": 108.083,
+    "end_seconds": 114.875,
+    "criterion": "7 · VON NEUMANN Y KERNEL COMPARTIDO",
+    "caption": "CPU ejecuta · RAM almacena · E/S comunica. Docker comparte el kernel del host Linux.",
+    "narration": "La CPU ejecuta, la memoria guarda y la entrada y salida comunica. Docker comparte el kernel del host Linux.",
+    "source": "VS Code real: README.md, desde línea 77"
+  }
+]
