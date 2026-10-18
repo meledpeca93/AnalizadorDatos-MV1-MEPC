@@ -69,9 +69,10 @@ class PageTests(SimpleTestCase):
                 self.assertContains(self.client.post('/', data), message)
 
     def test_html_is_escaped(self):
-        response = self.client.post('/', {'action': 'text', 'text': '<script>'})
-        self.assertNotContains(response, '<script>')
-        self.assertContains(response, '&lt;')
+        payload = '<script>x</script>'
+        response = self.client.post('/', {'action': 'text', 'text': payload})
+        self.assertNotContains(response, payload)
+        self.assertContains(response, '&lt;script&gt;x&lt;/script&gt;')
 
     def test_csrf_protection(self):
         self.assertEqual(Client(enforce_csrf_checks=True).post('/', {'action': 'text', 'text': 'ñ'}).status_code, 403)

@@ -17,6 +17,6 @@ test_length (analyzer.tests.TextTests.test_length) ... ok
 test_multibyte_and_space (analyzer.tests.TextTests.test_multibyte_and_space) ... ok
 
 ----------------------------------------------------------------------
-Ran 14 tests in 0.025s
+Ran 14 tests in 0.028s
 
 OK

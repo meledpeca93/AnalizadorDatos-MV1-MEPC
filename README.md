@@ -35,6 +35,17 @@ python manage.py test --verbosity 2
 python manage.py runserver 127.0.0.1:8000
 ```
 
+## Interfaz y experiencia de uso
+
+- Ejemplos interactivos que preparan el número y su base, o un texto de muestra.
+- Ayuda que muestra los dígitos permitidos al cambiar de base.
+- Resultados con botones para copiar, agrupación visual de 8 bits y ceros de relleno diferenciados.
+- Explicación del resultado: bits significativos, ceros agregados y bytes necesarios.
+- Contador de puntos de código, tamaño UTF-8 total y tabla de caracteres desplazable en móvil.
+- Guía integrada sobre bases, bytes, Unicode, UTF-8 y contenedores.
+- Navegación por teclado, enlace para saltar al contenido y foco en resultados o campos con errores.
+- Diseño adaptable sin fuentes ni servicios externos. Los formularios siguen funcionando sin JavaScript; ejemplos, contador y copiado son mejoras progresivas.
+
 ## Comportamiento y ejemplos
 
 - `FF`, base 16 → decimal `255`, binario `11111111`, octal `377`, hexadecimal `FF`; 8 bits significativos, 1 byte.
@@ -57,7 +68,7 @@ El texto admite hasta **20 puntos de código Unicode** y conserva espacios. Un e
 - `analyzer/tests.py`: 14 pruebas con subcasos: bases válidas, límites de bytes, cero, dígitos inválidos, bases no admitidas, valores negativos, vacíos, rango, ceros iniciales extensos, ñ, emoji, espacios, longitud, solicitudes HTTP, escape HTML y CSRF.
 - `evidence/`: resultados de ejecución y video, cuando se hayan generado.
 
-La página incluye etiquetas accesibles, diseño adaptable, escape automático de HTML y protección CSRF. La hoja de estilos está incluida en la plantilla, sin dependencias externas ni archivos estáticos que requieran servir por separado. Para exposición fuera de localhost, configurar `DJANGO_ALLOWED_HOSTS`, un `DJANGO_SECRET_KEY` privado y HTTPS en un proxy; el Compose entregado está pensado para demostración local.
+La página incluye etiquetas accesibles, diseño adaptable, escape automático de HTML y protección CSRF. Los estilos y las interacciones están organizados en las plantillas parciales `_styles.html` y `_interactions.html`, e incluidos en el HTML, sin dependencias externas ni archivos estáticos que requieran servir por separado. Para exposición fuera de localhost, configurar `DJANGO_ALLOWED_HOSTS`, un `DJANGO_SECRET_KEY` privado y HTTPS en un proxy; el Compose entregado está pensado para demostración local.
 
 ## Arquitectura de Von Neumann
 

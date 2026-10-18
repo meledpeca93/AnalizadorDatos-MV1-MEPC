@@ -1,6 +1,6 @@
 """Optional developer tool: pip install playwright imageio-ffmpeg.
 PLAYWRIGHT_BROWSERS_PATH=/private/tmp/analyzer-playwright python scripts/record_demo.py
-Requires Chrome and the running Compose service. Records real HTTP interactions
+Requires Playwright Chromium and the running Compose service. Records real HTTP interactions
 and displays output captured from real Docker commands; does not alter the app.
 """
 import html
@@ -22,18 +22,18 @@ def log_page(page, title, output):
 
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(channel='chrome', headless=True)
+    browser = p.chromium.launch(headless=True)
     context = browser.new_context(viewport={'width': 1280, 'height': 900}, record_video_dir=str(EVIDENCE / 'raw-video'), record_video_size={'width': 1280, 'height': 900})
     page = context.new_page()
     page.goto('http://127.0.0.1:8000/')
     page.wait_for_timeout(2500)
-    page.get_by_label('Número', exact=False).fill('100')
+    page.get_by_role('textbox', name='Número:', exact=True).fill('100')
     page.get_by_label('Base de origen').select_option('16')
     page.get_by_role('button', name='Convertir número').click()
-    page.get_by_text('0000000100000000', exact=True).wait_for()
+    page.locator('dd').filter(has_text='0000000100000000').wait_for()
     page.screenshot(path=str(EVIDENCE / 'conversion.png'), full_page=True)
     page.wait_for_timeout(6500)
-    page.get_by_label('Número', exact=False).fill('102')
+    page.get_by_role('textbox', name='Número:', exact=True).fill('102')
     page.get_by_label('Base de origen').select_option('2')
     page.get_by_role('button', name='Convertir número').click()
     page.get_by_text('Dígitos inválidos', exact=False).wait_for()

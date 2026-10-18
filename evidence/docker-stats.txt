@@ -1,2 +1,2 @@
 CONTAINER ID   NAME                             CPU %     MEM USAGE / LIMIT   MEM %     NET I/O          BLOCK I/O   PIDS
-a75c5d811283   analizadordatos-mv1-mepc-web-1   0.05%     48.17MiB / 256MiB   18.82%    4.4kB / 10.5kB   0B / 0B     4
+64c4dba0272e   analizadordatos-mv1-mepc-web-1   0.08%     48.12MiB / 256MiB   18.80%    18.2kB / 242kB   0B / 0B     4

@@ -1,0 +1,29 @@
+<script>
+(() => {
+  const number = document.getElementById('id_number');
+  const base = document.getElementById('id_base');
+  const text = document.getElementById('id_text');
+  const hints = {'2':'0 y 1', '8':'del 0 al 7', '10':'del 0 al 9', '16':'del 0 al 9 y de A a F (también minúsculas)'};
+  function baseHint() { document.getElementById('allowed-digits').textContent = hints[base.value] || 'Seleccione una base válida.'; }
+  function countText() { document.getElementById('text-count').textContent = Array.from(text.value).length + ' / 20'; }
+  base.addEventListener('change', baseHint);
+  text.addEventListener('input', countText);
+  document.querySelectorAll('[data-number]').forEach(button => button.addEventListener('click', () => {
+    number.value = button.dataset.number; base.value = button.dataset.base; baseHint(); number.focus();
+    announce('Ejemplo preparado. Pulse Convertir número para ver el resultado.');
+  }));
+  document.querySelectorAll('[data-text]').forEach(button => button.addEventListener('click', () => {
+    text.value = button.dataset.text; countText(); text.focus(); announce('Ejemplo preparado. Pulse Analizar texto para continuar.');
+  }));
+  let timer;
+  function announce(message) { const toast = document.getElementById('toast'); clearTimeout(timer); toast.textContent = message; timer = setTimeout(() => {toast.textContent = '';}, 4500); }
+  document.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(button.dataset.copy); announce('Valor copiado al portapapeles.'); }
+    catch { announce('No se pudo copiar. Puede seleccionar el valor y copiarlo manualmente.'); }
+  }));
+  baseHint(); countText();
+  const invalid = document.querySelector('[aria-invalid="true"]');
+  const result = document.querySelector('.result');
+  if (invalid) invalid.focus(); else if (result) result.focus();
+})();
+</script>

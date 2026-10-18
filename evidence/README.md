@@ -5,7 +5,7 @@ Capturadas durante la implementación. Los archivos de texto contienen salidas r
 - `python-container.txt`: Python 3.12.15 dentro del contenedor.
 - `tests-docker.txt`: 14 pruebas aprobadas dentro del contenedor.
 - `tests-local.txt`: 14 pruebas aprobadas también con el Python 3.13 disponible localmente; la verificación del requisito Python 3.12 es la del contenedor.
-- `docker-stats.txt`: 48.17 MiB / 256 MiB de RAM; CPU instantánea 0.05 %. Es una muestra en reposo, no una prueba de carga.
+- `docker-stats.txt`: 48.12 MiB / 256 MiB de RAM; CPU instantánea 0.08 %. Es una muestra en reposo, no una prueba de carga.
 - `docker-limits.txt`: `Memory=268435456 NanoCpus=1000000000`, equivalentes a 256 MiB y 1 CPU.
 - `compose-ps.txt`: contenedor saludable y puerto 8000 publicado.
 - `captured-at.txt`: fecha UTC de la captura.
@@ -22,11 +22,15 @@ Para repetir la grabación (herramientas opcionales, fuera de las dependencias d
 
 ```sh
 .venv/bin/pip install playwright imageio-ffmpeg
-PLAYWRIGHT_BROWSERS_PATH=/private/tmp/analyzer-playwright .venv/bin/python -m playwright install ffmpeg
+PLAYWRIGHT_BROWSERS_PATH=/private/tmp/analyzer-playwright .venv/bin/python -m playwright install chromium ffmpeg
 PLAYWRIGHT_BROWSERS_PATH=/private/tmp/analyzer-playwright .venv/bin/python scripts/record_demo.py
 ```
 
-Requiere Google Chrome instalado y el contenedor escuchando en el puerto 8000.
+Requiere Chromium de Playwright instalado y el contenedor escuchando en el puerto 8000.
+
+## Revisión de la interfaz mejorada
+
+`ui-checks.txt` registra la comprobación de ejemplos interactivos, copiado, agrupación de bits, foco de errores, tamaño UTF-8, contador Unicode, límites de texto, funcionamiento sin JavaScript y ausencia de desbordamientos de página en 360, 390, 768 y 1280 píxeles. Capturas: `ui-desktop.png`, `ui-number.png`, `ui-text.png` y `ui-mobile.png`.
 
 ## Publicación pendiente
 

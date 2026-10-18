@@ -19,4 +19,12 @@ def index(request):
             number_form = NumberForm(request.POST)
             number_form.is_valid()
             number_form.add_error(None, 'Seleccione una operación válida.')
-    return render(request, 'analyzer/index.html', {'number_form': number_form, 'text_form': text_form, 'result': result, 'rows': rows})
+    byte_groups = []
+    padding_bits = 0
+    if result:
+        padding_bits = len(result['binary']) - result['bits']
+        bits = [{'value': bit, 'padding': i < padding_bits} for i, bit in enumerate(result['binary'])]
+        byte_groups = [bits[i:i + 8] for i in range(0, len(bits), 8)]
+    base = number_form['base'].value()
+    allowed_digits = {'2': '0 y 1', '8': 'del 0 al 7', '10': 'del 0 al 9', '16': 'del 0 al 9 y de A a F (también minúsculas)'}.get(str(base), 'Seleccione una base válida.')
+    return render(request, 'analyzer/index.html', {'number_form': number_form, 'text_form': text_form, 'result': result, 'rows': rows, 'byte_groups': byte_groups, 'padding_bits': padding_bits, 'utf8_total': sum(row['byte_count'] for row in rows or []), 'allowed_digits': allowed_digits})

@@ -1,0 +1,1 @@
+PASS: examples, base hints, byte groups and padding, copy to clipboard, error focus, UTF-8 totals, emoji code-point count, 20/21 input limit, no horizontal page overflow at 360/390/768/1280px, no JavaScript errors, conversion without JavaScript.
