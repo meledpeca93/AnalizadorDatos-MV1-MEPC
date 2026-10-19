@@ -89,3 +89,11 @@ Un contenedor aísla procesos y recursos mediante mecanismos del kernel, como na
 
 
 Consultar `evidence/README.md` para el estado verificado de las evidencias, el video y la publicación. El video debe durar menos de dos minutos y mostrar conversión válida, error, ñ, pruebas y contenedor en ejecución. El enlace a un repositorio o Drive debe verificarse con acceso desde la cuenta del evaluador antes de entregar.
+
+
+
+
+
+## URL VIDEO EXPLICATIVO
+
+https://drive.google.com/file/d/1yqOaN-spjthH4caO92HaQdTR3WMbZUje/view?usp=drive_link
